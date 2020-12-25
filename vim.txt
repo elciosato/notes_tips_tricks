@@ -1,0 +1,49 @@
+# Exit vim without save (:q!)
+<shift> ZQ
+
+# Exit vim and save (:wq)
+<shift> ZZ
+
+# Move line to the middle of the screen
+zz
+
+# Move line to the top of the screen
+zt
+
+# Move line to the bottom of the screen
+zb
+
+# Delete to the end of the line
+d$ or D
+
+# Move the cursor one word backward
+b
+
+# Delete everything inside parentheses
+di(
+
+# Return editing position in 5 minutes
+:earlier 5m
+
+# Oposite
+:later 5m
+
+# Change (c) command. It is like delete (d) command but keep in editing mode
+cw
+
+# Search command
+/
+
+# Go next in search mode
+n
+
+# Go previous in sarch mode
+N
+
+# Go back where cursor where
+''
+
+# Read from file or output from an OS command
+:r !ls -l
+
+
