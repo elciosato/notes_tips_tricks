@@ -1,2 +1,2 @@
-# notes_tips_tricks
+# Notes tips tricks
 Repository to organize some notes tips and tricks
