@@ -1,0 +1,68 @@
+# Keyword DISTINCT = UNIQUE
+
+SELECT DISTINCT department_id
+FROM employee;
+
+SELECT UNIQUE department_id
+FROM employee;
+
+# Column Alias
+select salary + 100 as new_salary
+from employee;
+
+# NULLs NULLS FIRST and NULLS LAST
+select * 
+from employee 
+order by phone nulls first;
+
+# COALESCE - return first not null value
+select name, coalesce(phone, email) from employee;
+
+# NVL2 (exp1, exp2, exp3)
+exp1 = expression test
+exp2 = returned if exp1 is not null
+exp3 = returned if exp1 is null
+
+# NULLIF (exp1, exp2)
+Return NULL if exp1 == exp2, otherwise return exp1
+
+# LNNVL (<condition>)
+<condition> is not true or unknown
+
+# Operator's precedent
+1) Not
+2) And
+3) Or
+ 
+# Substitution variables
+# define with & i.e. &sal
+# define and save for all occurencies double && i.e. &&sal
+# Attention, you need to undefine sal otherwise they won't ask the value every execution and it will use the value previously stored
+
+
+# Scalar query = return one line and one column
+# Scalar query can be used as a column
+
+# Top-N query before 12c
+with emp as (
+select e.*,
+row_number() over (order by salary desc) as rn
+from employee e
+order by salary desc)
+select *
+from emp
+where rn < 5;
+ 
+# Top-N query after 12c
+select *
+from employee
+order by salary desc
+fetch first 5 rows only;
+ 
+# A subquery like this one, that is declared using the WITH clause, is usually called a CTE,  which stands for COMMON TABLE EXPRESSION.
+
+# Convertion
+to_date('20190101' default null on conversion error,'yyyymmdd')
+validate_conversion('$0.55' as number,'0.99')
+
+
