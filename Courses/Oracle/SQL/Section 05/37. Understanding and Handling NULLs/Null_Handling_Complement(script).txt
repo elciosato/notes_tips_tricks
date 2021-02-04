@@ -1,0 +1,22 @@
+--New column on the Employee table
+ALTER TABLE EMPLOYEE ADD BONUS NUMBER;
+
+--New Table
+CREATE TABLE company (
+    id                  NUMBER(3) CONSTRAINT pk_company PRIMARY KEY,
+    name                VARCHAR2(100) NOT NULL,
+    commercial_contact  VARCHAR2(50),
+    technical_contact   VARCHAR2(50),
+    president           VARCHAR2(50),
+    last_contacted      DATE,
+    budget              NUMBER(8,2),
+    budget_range_start  NUMBER(8,2) NOT NULL,
+    budget_range_end    NUMBER(8,2) NOT NULL
+);
+
+INSERT INTO company (id,name,commercial_contact,president,budget_range_start,budget_range_end ) VALUES (1,'OUR BRILLIANT FUTURE LTD','LUISA JACKSON','JOHN SMITH',25000,50000);
+INSERT INTO company (id,name,president,budget,budget_range_start,budget_range_end ) VALUES (2,'TESTING MAGIC','JUSTIN BLACK',35000,25000,50000);
+INSERT INTO company (id,name,technical_contact,president,last_contacted,budget,budget_range_start,budget_range_end ) VALUES (3,'MAKING PROGRESS','ANGIE CROOD','CHARLES DEAN',DATE '2020-01-01',350000,125000,500000);
+INSERT INTO company (id,name,commercial_contact,technical_contact,last_contacted,budget,budget_range_start,budget_range_end ) VALUES (4,'SKILL MASTERY','NIGEL OAKS','NIGEL OAKS',DATE '2020-02-15',12000,10000,24000);
+INSERT INTO company (id,name,last_contacted,budget,budget_range_start,budget_range_end ) VALUES (5,'UNDECIDED AND CO.',DATE '2015-12-31',51000,51000,100000);
+COMMIT;

@@ -1,0 +1,14 @@
+--STATEMENT NUMBER 1
+UPDATE employee
+SET bonus =
+  CASE
+    WHEN salary < 3000
+    THEN 100
+    WHEN salary BETWEEN 3000 AND 4000
+    THEN 200
+    WHEN salary BETWEEN 4001 AND 4900
+    THEN 300
+  END;
+
+--STATEMENT NUMBER 2
+commit;
