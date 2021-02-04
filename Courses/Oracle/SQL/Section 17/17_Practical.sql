@@ -140,6 +140,7 @@ commit;
 alter table colors add constraint pk_colors primary key (id);
 
 alter table colors modify name varchar2(50) not null;
+ALTER TABLE colors MODIFY color_name constraint nn_colorname NOT NULL;
 
 -- Problem 4
 alter table person_cars add constraint fk_person_car_color foreign key (color_id) references colors;
@@ -267,3 +268,32 @@ drop index EMP_FIRST_LAST_NAME_IX;
 
 -- 191. Views 1
 -- Problem 1
+create view vw_top_emp_sal as
+(select e.employee_id
+, e.first_name
+, e.last_name
+, department_id
+, d.department_name
+, j.job_title
+, e.salary
+from employees e 
+join departments d using (department_id)
+join jobs j using (job_id)
+where e.salary > 3000);
+
+-- 193. Views 2
+-- Problem 2
+create or replace view vw_emp1 as
+select *
+from employees
+where salary < 10000
+with check option;
+
+desc vw_emp1;
+
+select * from jobs;
+
+insert into vw_emp1
+values (10000, 'First', 'Last', 'flast', null, sysdate, 'IT_PROG', 1000, null, null, null);
+
+rollback;
