@@ -65,4 +65,25 @@ fetch first 5 rows only;
 to_date('20190101' default null on conversion error,'yyyymmdd')
 validate_conversion('$0.55' as number,'0.99')
 
+# Hierarchical Query
+# Clause
+with hierar_emp as (
+select employee_id
+, first_name
+, job_id
+, prior first_name
+, level as q_level
+, connect_by_isleaf as isleaf
+, connect_by_iscycle as iscycle
+from employees
+start with manager_id is null
+connect by nocycle manager_id = prior employee_id
+)
+select *
+from hierar_emp
+where q_level > 2 or isleaf = 1
+order by q_level desc;
+
+# connect_by_root
+# sys_connect_by_path(first_name, '->') as path
 
