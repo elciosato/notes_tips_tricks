@@ -4,5 +4,6 @@
 .LSOverride
 
 *.pdf
+*.swp
 
 *Courses/Oracle/SQL/Section 15/diagram*
