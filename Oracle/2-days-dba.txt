@@ -1,0 +1,6 @@
+# Oracle database Testing Guide
+
+# 3 types of table
+- Relational
+- Object
+- XML

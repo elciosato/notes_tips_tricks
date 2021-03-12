@@ -1,0 +1,84 @@
+# Linux x86_64
+
+yum install glibc-common
+yum install glibc-devel
+yum install glibc-profile
+yum install glibc-headers
+yum install glibc-utils
+yum install glibc
+
+binutils-2.23.52.0.1
+
+compat-libcap1-1.10
+
+compat-libstdc++-33-3.2.3.x86_64
+
+compat-libstdc++-33-3.2.3.i686
+
+gcc-4.8.2
+
+gcc-c++-4.8.2
+
+glibc-2.17.x86_64
+
+glibc-2.17.i686
+
+glibc-devel-2.17.x86_64
+
+libaio-0.3.109.x86_64
+
+libaio-devel-0.3.109.x86_64
+
+libgcc-4.8.2.x86_64
+
+libgcc-4.8.2.i686
+
+libstdc++-4.8.2.x86_64
+
+libstdc++-4.8.2.i686
+
+libstdc++-devel-4.8.2.x86_64
+
+dejavu-serif-fonts
+
+ksh
+
+make-3.82
+
+sysstat-10.1.5
+
+numactl-2.0.9 for x86_641
+
+numactl-devel-2.0.9 for x86_642
+
+motif-2.3.4-7 for x86_643
+
+motif-devel-2.3.4-7 for x86_644
+
+redhat-lsb-4.1-27.0.1.el7 for x86_64
+
+redhat-lsb-core-4.1-27.0.1.el7 for x86_64
+
+OpenSSL 1.0.1e
+
+# Verifying UDP and TCP Kernel Parameters
+$ cat /proc/sys/net/ipv4/ip_local_port_range
+32768 61000
+
+# echo 11000 65000 > /proc/sys/net/ipv4/ip_local_port_range
+
+vim /etc/sysctl.conf
+net.ipv4.ip_local_port_range = 11000 65000
+
+# Restart Network
+/etc/rc.d/init.d/network restart
+
+# Verifying nproc Kernel Parameter
+vim /etc/security/limits.conf
+nproc	4098
+
+vim /etc/sysctl.conf
+kernel.shmmax 4294967295
+
+/sbin/sysctl -p
+
